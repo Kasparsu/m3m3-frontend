@@ -1,0 +1,30 @@
+{
+  "name": "m3m3",
+  "version": "1.0.0",
+  "description": "meme site",
+  "author": "Kaspar Martin Suursalu",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/pwa": "^2.6.0",
+    "cross-env": "^5.2.0",
+    "net": "^1.0.2",
+    "nuxt": "^2.4.0",
+    "rethinkdb": "^2.3.3",
+    "rethinkdbdash": "^2.3.31",
+    "tls": "0.0.1",
+    "vuetify": "^1.5.0",
+    "vuetify-loader": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
