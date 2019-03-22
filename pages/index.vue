@@ -1,18 +1,28 @@
 <template>
-    <meme-list></meme-list>
+  <div class="columns is-centered">
+    <div class="column is-5">
+      <infinte-scroll @limit="loadNext" :loading="$store.state.memes.loading">
+        <meme-list></meme-list>
+      </infinte-scroll>
+    </div>
+  </div>
+
 </template>
 
 <script>
 
 
 import MemeList from "../components/memeList";
+import InfinteScroll from "../components/infinteScroll";
 export default {
-    components: {MemeList},
+    components: {InfinteScroll, MemeList},
     mounted(){
 
     },
-    created(){
-        this.$store.dispatch('memes/getMemes');
+    methods: {
+      loadNext(){
+        this.$store.dispatch('memes/getNextMemes');
+      }
     }
 }
 </script>
