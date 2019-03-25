@@ -1,13 +1,14 @@
 <template>
-    <meme-list></meme-list>
+    <meme-slider></meme-slider>
 </template>
 
 <script>
 
 
 import MemeList from "../components/memeList";
+import MemeSlider from "../components/MemeSlider";
 export default {
-    components: {MemeList},
+    components: {MemeSlider, MemeList},
     mounted(){
 
     },
