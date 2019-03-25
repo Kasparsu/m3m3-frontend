@@ -20,7 +20,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -34,5 +33,30 @@
 </script>
 
 <style scoped>
+  .v-card {
+    z-index: 2;
+    left: 0;
+    top: 0;
+    transform-origin: 50% 100%;
+  }
+  .v-card.reset {
+     transition: transform 0.3s;
+     transform: translateX(0) !important;
+  }
 
+  .v-card.inactive {
+     transition: transform 0.3s;
+   }
+
+  .v-card.to-left {
+     transform: translateX(-50rem) rotate(-50deg) !important;
+   }
+
+  .v-card.to-right {
+     transform: translate(50rem) rotate(50deg) !important;
+   }
+
+  .v-card.below {
+     z-index: 1;
+   }
 </style>

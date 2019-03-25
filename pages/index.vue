@@ -6,16 +6,16 @@
       </infinte-scroll>
     </div>
   </div>
-
 </template>
 
 <script>
 
 
 import MemeList from "../components/memeList";
-import InfinteScroll from "../components/infinteScroll";
+
+import MemeSlider from "../components/MemeSlider";
 export default {
-    components: {InfinteScroll, MemeList},
+    components: {MemeSlider, MemeList},
     mounted(){
 
     },
