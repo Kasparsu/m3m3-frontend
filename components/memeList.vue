@@ -1,29 +1,31 @@
 <template>
-    <infinte-scroll>
-        <v-layout>
-            <v-flex xs12 sm6 offset-sm3>
+  <div>
+      <meme v-for="meme in memes" :key="meme.id" :meme="meme"></meme>
+  </div>
 
-                <meme v-for="meme in memes" :meme="meme"></meme>
-            </v-flex>
-        </v-layout>
-    </infinte-scroll>
 </template>
 
 <script>
     import { mapGetters } from 'vuex'
     import Meme from "./meme";
-    import InfinteScroll from "./infinteScroll";
     export default {
         name: "memeList",
-        components: {InfinteScroll, Meme},
-        created() {
+        components: {Meme},
+        props: ['page'],
+        created(){
+          if(this.page){
+            this.$store.dispatch('memes/getMemePage', this.page);
+          } else {
+            this.$store.dispatch('memes/getNextMemes');
+          }
 
         },
         computed: {
             ...mapGetters({
                 memes: 'memes/memes'
             })
-        }
+        },
+
     }
 </script>
 

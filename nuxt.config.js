@@ -1,7 +1,7 @@
 const pkg = require('./package')
 
 
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+//const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
   mode: 'spa',
@@ -11,6 +11,9 @@ module.exports = {
   */
   head: {
     title: pkg.name,
+    htmlAttrs: {
+      class: 'has-navbar-fixed-top'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,16 +38,23 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl'
+    //'~/assets/style/app.styl',
+    //'bulma',
+    '@/assets/style/app.scss'
   ],
-
+  styleResources: {
+    scss: [
+      "@/assets/style/app.scss"
+    ]
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify',
+    //'@/plugins/vuetify',
     '@/plugins/api',
     '@/plugins/touchEvents'
+    '@/plugins/bodyScroll',
   ],
 
   /*
@@ -53,24 +63,26 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
       '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/moment'
   ],
   axios: {
-      baseURL: 'http://192.168.99.100',
-      browserBaseURL: 'http://192.168.99.100',
-      host: '192.168.99.100',
+      browserBaseURL: 'http://localhost',
   },
   /*
   ** Build configuration
   */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
+    transpile: [
+      //'vuetify/lib'
+    ],
+    plugins: [
+      //new VuetifyLoaderPlugin()
+    ],
     loaders: {
-      stylus: {
-        import: ["~assets/style/variables.styl"]
-      }
+
     },
-    
+    extractCss: true,
     /*
     ** You can extend webpack config here
     */
