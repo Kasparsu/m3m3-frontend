@@ -53,7 +53,7 @@ module.exports = {
   plugins: [
     //'@/plugins/vuetify',
     '@/plugins/api',
-    '@/plugins/touchEvents'
+    '@/plugins/touchEvents',
     '@/plugins/bodyScroll',
   ],
 

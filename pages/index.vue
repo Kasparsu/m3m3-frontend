@@ -1,9 +1,7 @@
 <template>
   <div class="columns is-centered">
-    <div class="column is-5">
-      <infinte-scroll @limit="loadNext" :loading="$store.state.memes.loading">
-        <meme-list></meme-list>
-      </infinte-scroll>
+    <div class="column is-5 is-5-mobile">
+        <slider v-if="$store.state.memes.list.length"></slider>
     </div>
   </div>
 </template>
@@ -14,10 +12,11 @@
 import MemeList from "../components/memeList";
 
 import MemeSlider from "../components/MemeSlider";
+import Slider from "../components/Slider";
 export default {
-    components: {MemeSlider, MemeList},
-    mounted(){
-
+    components: {Slider, MemeSlider, MemeList},
+    created(){
+      this.$store.dispatch('memes/getNextMemes');
     },
     methods: {
       loadNext(){
@@ -26,3 +25,8 @@ export default {
     }
 }
 </script>
+<style>
+  .box{
+    background-color: #47494e;
+  }
+</style>
